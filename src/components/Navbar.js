@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import { Link } from 'react-router-dom'
 
+ 
 export default class Navbar extends Component {
-  render() {
+  render(props) {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,7 +29,21 @@ export default class Navbar extends Component {
                 <Link className="nav-link" to="/Sports">Sports</Link></li> 
                 <li className="nav-item">
                 <Link className="nav-link" to="/Technology">Technology</Link></li>
-            </ul>
+                </ul>
+                
+                <form className="d-flex nav-item dropdown">
+                {/* <a className="nav-link active dropdown-toggle" href="#" style={{color: 'grey'}} id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                  Countries
+                </a> */}
+                <select onChange={(e) => { this.props.setCountry(e.target.value) }} >
+                  <option className="dropdown-item" value="us" onClick={(e) => this.state.country(e)}>USA</option>
+                  <option className="dropdown-item" value="in" onClick={(e) => this.state.country(e)}>India</option>
+                  <option className="dropdown-item" value="gb" onClick={(e) => this.state.country(e)}>UK</option>
+                  <option className="dropdown-item" value="ca" onClick={(e) => this.state.country(e)}>Canada</option>
+                  <option className="dropdown-item" value="au" onClick={(e) => this.state.country(e)}>Australia</option>
+                </select>
+              </form>
+            
             
             </div>
         </div>
